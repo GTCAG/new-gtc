@@ -25,6 +25,7 @@ const Root = styled.div<PageHeaderProps>`
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
+    background-attachment: fixed;
 
     opacity: ${({ opacity }) => opacity || "0.2"};
     position: absolute;

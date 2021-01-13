@@ -25,5 +25,13 @@ declare module "styled-components" {
       display: string;
       text: string;
     };
+    dimensions: {
+      margins: {
+        dekstop: string;
+        tablet: string;
+        mobile: string;
+      };
+      maxWidth: string;
+    };
   }
 }

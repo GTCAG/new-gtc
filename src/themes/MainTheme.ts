@@ -24,5 +24,13 @@ const mainTheme: DefaultTheme = {
     display: "font-family: 'Merriweather', serif;",
     text: "font-family: 'Montserrat', sans-serif;",
   },
+  dimensions: {
+    margins: {
+      dekstop: "70px",
+      tablet: "50px",
+      mobile: "30px",
+    },
+    maxWidth: "1300px",
+  },
 };
 export { mainTheme };

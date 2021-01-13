@@ -4,6 +4,7 @@ import PageHeader from "../atoms/PageHeader";
 import Display from "../texts/Display";
 import Text from "../texts/Text";
 import testImg from "../../images/cafe.jpg";
+import NavBar from "../atoms/NavBar";
 
 const Root = styled.div`
   width: 100%;
@@ -11,11 +12,13 @@ const Root = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
 `;
 
 const TestPage: React.FC = () => {
   return (
     <Root>
+      <NavBar />
       <PageHeader img={testImg}>
         <Display color="#ffffff">Display Text</Display>
         <Text color="#fff">Hello Text</Text>
