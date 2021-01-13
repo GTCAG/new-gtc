@@ -22,6 +22,8 @@ const Root = styled.div`
   box-sizing: border-box;
   padding: 0 ${({ theme }) => theme.dimensions.margins.dekstop};
   max-width: ${({ theme }) => theme.dimensions.maxWidth};
+
+  user-select: none;
 `;
 
 const Logo = styled.img`
@@ -60,7 +62,14 @@ const NormalLink = styled.a`
 
 const DropdownItem = styled.div`
   color: ${({ theme }) => theme.colors.primary.default};
-  padding: 8px;
+  padding: 12px 20px;
+
+  transition: background-color 0.1s ease-out;
+  cursor: pointer;
+
+  &:hover {
+    background-color: ${({ theme }) => theme.colors.accent.default};
+  }
 `;
 
 const DropdownIcon = styled.img`
@@ -71,9 +80,10 @@ const DropdownIcon = styled.img`
 
 const DropdownMenu = styled.div`
   position: absolute;
-  top: 99%;
-  background-color: ${({ theme }) => theme.colors.accent.default};
-  width: 100%;
+  top: 100%;
+  left: 0;
+  background-color: ${({ theme }) => theme.colors.lights.offWhite};
+  min-width: 100%;
 
   z-index: 5;
 `;

@@ -13,7 +13,7 @@ const mainTheme: DefaultTheme = {
       dark: "#E2D0BD",
     },
     lights: {
-      offWhite: "#F8F2F0",
+      offWhite: "#F7F4F0",
       white: "#ffffff",
     },
     cta: {
