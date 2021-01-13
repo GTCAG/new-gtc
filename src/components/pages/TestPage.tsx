@@ -1,7 +1,9 @@
 import React from "react";
 import styled from "styled-components";
+import PageHeader from "../atoms/PageHeader";
 import Display from "../texts/Display";
 import Text from "../texts/Text";
+import testImg from "../../images/cafe.jpg";
 
 const Root = styled.div`
   width: 100%;
@@ -14,14 +16,10 @@ const Root = styled.div`
 const TestPage: React.FC = () => {
   return (
     <Root>
-      <Text variant="medium" color="#ffffff">
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consequuntur
-        eveniet, numquam ipsa eaque alias aliquid quae quia nobis amet, unde
-        sapiente accusantium nihil inventore at perspiciatis beatae et quod
-        perferendis.
-      </Text>
-
-      <Display color="#ffffff">Display Text</Display>
+      <PageHeader img={testImg}>
+        <Display color="#ffffff">Display Text</Display>
+        <Text color="#fff">Hello Text</Text>
+      </PageHeader>
     </Root>
   );
 };
