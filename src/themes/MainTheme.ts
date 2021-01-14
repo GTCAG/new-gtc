@@ -32,5 +32,10 @@ const mainTheme: DefaultTheme = {
     },
     maxWidth: "1300px",
   },
+  breakPoints: {
+    desktop: "1000px",
+    tablet: "720px",
+    mobile: "500px",
+  },
 };
 export { mainTheme };

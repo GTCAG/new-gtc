@@ -11,7 +11,6 @@ const HamburgerStyles = createGlobalStyle`
     .hamburger {
         outline: none;
         padding: 15px 15px;
-        display: inline-block;
         cursor: pointer;
         transition-property: opacity, filter;
         transition-duration: 0.15s;
@@ -24,7 +23,11 @@ const HamburgerStyles = createGlobalStyle`
         margin: 0;
         overflow: visible; 
         opacity: 0.7;
+        transition: transform 0.1s ease-out;
     }
+    // .hamburger.is-active {
+    //     transform: translateX(40px);
+    // }
     .hamburger:hover {
         background-color: ${({ theme }) => theme.colors.accent.default}20;
     opacity: 1; }
@@ -33,7 +36,7 @@ const HamburgerStyles = createGlobalStyle`
     .hamburger.is-active .hamburger-inner,
     .hamburger.is-active .hamburger-inner::before,
     .hamburger.is-active .hamburger-inner::after {
-    background-color: #fff; }
+    background-color: ${({ theme }) => theme.colors.primary.default}; }
 
     .hamburger-box {
     width: 32px;

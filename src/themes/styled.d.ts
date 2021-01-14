@@ -33,5 +33,10 @@ declare module "styled-components" {
       };
       maxWidth: string;
     };
+    breakPoints: {
+      desktop: string;
+      tablet: string;
+      mobile: string;
+    };
   }
 }

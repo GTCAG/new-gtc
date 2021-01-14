@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import styled, { withTheme, DefaultTheme } from "styled-components";
+import styled, { withTheme, DefaultTheme, keyframes } from "styled-components";
 import logoImg from "../../images/GTC-Logo.svg";
 import arrowImg from "../../images/chevron_down.svg";
 import Text from "../texts/Text";
@@ -40,6 +40,16 @@ interface NavBarProps {
   children?: any;
 }
 
+const slideInLeft = keyframes`
+  from {
+    width: 0px;
+  }
+
+  to {
+    width: 320px;
+  }
+`;
+
 const Root = styled.div`
   background-color: ${({ theme }) => theme.colors.background};
 
@@ -47,7 +57,6 @@ const Root = styled.div`
   width: 100%;
 
   display: flex;
-
   align-items: center;
 
   box-sizing: border-box;
@@ -55,6 +64,10 @@ const Root = styled.div`
   max-width: ${({ theme }) => theme.dimensions.maxWidth};
 
   user-select: none;
+
+  @media (max-width: ${({ theme }) => theme.breakPoints.desktop}) {
+    justify-content: space-between;
+  }
 `;
 
 const Logo = styled.img`
@@ -67,6 +80,9 @@ const Links = styled.div`
   display: flex;
   align-items: center;
   white-space: nowrap;
+  @media (max-width: ${({ theme }) => theme.breakPoints.desktop}) {
+    display: none;
+  }
 `;
 
 const Dropdown = styled.div`
@@ -125,8 +141,27 @@ const DropdownMenu = styled.div`
   z-index: 5;
 `;
 
+const MobileRoot = styled.div`
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 320px;
+  height: 100vh;
+  z-index: 4;
+  background-color: ${({ theme }) => theme.colors.accent.default};
+  display: none;
+  animation: ${slideInLeft} 0.1s ease-out;
+  @media (max-width: ${({ theme }) => theme.breakPoints.desktop}) {
+    display: block;
+  }
+`;
+
 const HamburgerButton = styled.button`
-  visibility: hidden;
+  display: none;
+  z-index: 5;
+  @media (max-width: ${({ theme }) => theme.breakPoints.desktop}) {
+    display: block;
+  }
 `;
 
 const DropdownLink = withTheme(({ children, theme, title }) => {
@@ -143,6 +178,10 @@ const DropdownLink = withTheme(({ children, theme, title }) => {
     </Dropdown>
   );
 });
+
+const MobileNav = () => {
+  return <MobileRoot></MobileRoot>;
+};
 
 const NavBar: React.FC<NavBarProps> = (props: NavBarProps) => {
   const [navOpen, setNavOpen] = useState(false);
@@ -182,6 +221,7 @@ const NavBar: React.FC<NavBarProps> = (props: NavBarProps) => {
           <span className="hamburger-inner"></span>
         </span>
       </HamburgerButton>
+      {navOpen && <MobileNav></MobileNav>}
     </Root>
   );
 };
