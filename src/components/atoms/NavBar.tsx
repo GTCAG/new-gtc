@@ -5,6 +5,36 @@ import arrowImg from "../../images/chevron_down.svg";
 import Text from "../texts/Text";
 import { Link } from "react-router-dom";
 
+const navData = [
+  {
+    sectionTitle: "Who We Are",
+    links: [
+      { title: "What We Believe", route: "/belief" },
+      { title: "Our Story", route: "/story" },
+      { title: "Leadership", route: "/leadership" },
+    ],
+  },
+  {
+    sectionTitle: "Our Ministries",
+    links: [
+      { title: "Youth", route: "/youth" },
+      { title: "Kids", route: "/kids" },
+      { title: "GTC Cafe", route: "/cafe" },
+    ],
+  },
+  {
+    sectionTitle: "Resouces",
+    links: [
+      { title: "Media", route: "/Media" },
+      { title: "Contact Us", route: "/contact" },
+    ],
+  },
+  {
+    title: "Give Back",
+    route: "https://www.google.com",
+  },
+];
+
 interface NavBarProps {
   theme: DefaultTheme;
   children?: any;
@@ -36,6 +66,7 @@ const Logo = styled.img`
 const Links = styled.div`
   display: flex;
   align-items: center;
+  white-space: nowrap;
 `;
 
 const Dropdown = styled.div`
@@ -94,6 +125,10 @@ const DropdownMenu = styled.div`
   z-index: 5;
 `;
 
+const HamburgerButton = styled.button`
+  visibility: hidden;
+`;
+
 const DropdownLink = withTheme(({ children, theme, title }) => {
   const [menuOpen, setMenuOpen] = useState(false);
   return (
@@ -110,62 +145,43 @@ const DropdownLink = withTheme(({ children, theme, title }) => {
 });
 
 const NavBar: React.FC<NavBarProps> = (props: NavBarProps) => {
+  const [navOpen, setNavOpen] = useState(false);
   return (
     <Root>
       <Logo src={logoImg} />
       <Links>
-        <DropdownLink title="Who We Are">
-          <Link to="/belief">
-            <DropdownItem>
-              <Text variant="x-small">What We Believe</Text>
-            </DropdownItem>
-          </Link>
-          <Link to="/story">
-            <DropdownItem>
-              <Text variant="x-small">Our Story</Text>
-            </DropdownItem>
-          </Link>
-          <Link to="/leadership">
-            <DropdownItem>
-              <Text variant="x-small">Leadership</Text>
-            </DropdownItem>
-          </Link>
-        </DropdownLink>
-        <DropdownLink title="Our Ministries">
-          <Link to="/youth">
-            <DropdownItem>
-              <Text variant="x-small">Youth</Text>
-            </DropdownItem>
-          </Link>
-          <Link to="/kids">
-            <DropdownItem>
-              <Text variant="x-small">Kids</Text>
-            </DropdownItem>
-          </Link>
-          <Link to="/cafe">
-            <DropdownItem>
-              <Text variant="x-small">GTC Cafe</Text>
-            </DropdownItem>
-          </Link>
-        </DropdownLink>
-        <DropdownLink title="Resources">
-          <Link to="/media">
-            <DropdownItem>
-              <Text variant="x-small">Media</Text>
-            </DropdownItem>
-          </Link>
-          <Link to="/contact">
-            <DropdownItem>
-              <Text variant="x-small">Contact Us</Text>
-            </DropdownItem>
-          </Link>
-        </DropdownLink>
-        <NormalLink href="https://www.google.com">
-          <Text variant="x-small" color={props.theme.colors.lights.offWhite}>
-            Donate
-          </Text>
-        </NormalLink>
+        {navData.map((data, index) => {
+          if (data.sectionTitle)
+            return (
+              <DropdownLink title={data.sectionTitle} key={index}>
+                {data.links.map((linkData, linkIndex) => (
+                  <Link to={linkData.route} key={linkIndex}>
+                    <DropdownItem>
+                      <Text variant="x-small">{linkData.title}</Text>
+                    </DropdownItem>
+                  </Link>
+                ))}
+              </DropdownLink>
+            );
+
+          return (
+            <NormalLink href={data.route} key={index}>
+              <Text
+                variant="x-small"
+                color={props.theme.colors.lights.offWhite}>
+                {data.title}
+              </Text>
+            </NormalLink>
+          );
+        })}
       </Links>
+      <HamburgerButton
+        className={`hamburger hamburger--vortex ${navOpen ? "is-active" : ""}`}
+        onClick={() => setNavOpen(!navOpen)}>
+        <span className="hamburger-box">
+          <span className="hamburger-inner"></span>
+        </span>
+      </HamburgerButton>
     </Root>
   );
 };
