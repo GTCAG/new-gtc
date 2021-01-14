@@ -3,6 +3,7 @@ import styled, { withTheme, DefaultTheme } from "styled-components";
 import logoImg from "../../images/GTC-Logo.svg";
 import arrowImg from "../../images/chevron_down.svg";
 import Text from "../texts/Text";
+import { Link } from "react-router-dom";
 
 interface NavBarProps {
   theme: DefaultTheme;
@@ -46,6 +47,11 @@ const Dropdown = styled.div`
   white-space: nowrap;
   padding: 16px 16px 16px 24px;
   box-sizing: border-box;
+
+  a {
+    text-decoration: none;
+    color: ${({ theme }) => theme.colors.primary.default};
+  }
 
   &:hover {
     background-color: ${({ theme }) => theme.colors.accent.dark}20;
@@ -109,34 +115,50 @@ const NavBar: React.FC<NavBarProps> = (props: NavBarProps) => {
       <Logo src={logoImg} />
       <Links>
         <DropdownLink title="Who We Are">
-          <DropdownItem>
-            <Text variant="x-small">What We Believe</Text>
-          </DropdownItem>
-          <DropdownItem>
-            <Text variant="x-small">Our Story</Text>
-          </DropdownItem>
-          <DropdownItem>
-            <Text variant="x-small">Leadership</Text>
-          </DropdownItem>
+          <Link to="/belief">
+            <DropdownItem>
+              <Text variant="x-small">What We Believe</Text>
+            </DropdownItem>
+          </Link>
+          <Link to="/story">
+            <DropdownItem>
+              <Text variant="x-small">Our Story</Text>
+            </DropdownItem>
+          </Link>
+          <Link to="/leadership">
+            <DropdownItem>
+              <Text variant="x-small">Leadership</Text>
+            </DropdownItem>
+          </Link>
         </DropdownLink>
         <DropdownLink title="Our Ministries">
-          <DropdownItem>
-            <Text variant="x-small">Youth</Text>
-          </DropdownItem>
-          <DropdownItem>
-            <Text variant="x-small">Kids</Text>
-          </DropdownItem>
-          <DropdownItem>
-            <Text variant="x-small">GTC Cafe</Text>
-          </DropdownItem>
+          <Link to="/youth">
+            <DropdownItem>
+              <Text variant="x-small">Youth</Text>
+            </DropdownItem>
+          </Link>
+          <Link to="/kids">
+            <DropdownItem>
+              <Text variant="x-small">Kids</Text>
+            </DropdownItem>
+          </Link>
+          <Link to="/cafe">
+            <DropdownItem>
+              <Text variant="x-small">GTC Cafe</Text>
+            </DropdownItem>
+          </Link>
         </DropdownLink>
         <DropdownLink title="Resources">
-          <DropdownItem>
-            <Text variant="x-small">Media</Text>
-          </DropdownItem>
-          <DropdownItem>
-            <Text variant="x-small">Leadership</Text>
-          </DropdownItem>
+          <Link to="/media">
+            <DropdownItem>
+              <Text variant="x-small">Media</Text>
+            </DropdownItem>
+          </Link>
+          <Link to="/contact">
+            <DropdownItem>
+              <Text variant="x-small">Contact Us</Text>
+            </DropdownItem>
+          </Link>
         </DropdownLink>
         <NormalLink href="https://www.google.com">
           <Text variant="x-small" color={props.theme.colors.lights.offWhite}>
