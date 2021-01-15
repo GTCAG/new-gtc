@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import styled, { withTheme, DefaultTheme, keyframes } from "styled-components";
+import styled, { withTheme, DefaultTheme } from "styled-components";
 import logoImg from "../../images/GTC-Logo.svg";
 import arrowImg from "../../images/chevron_down.svg";
 import Text from "../texts/Text";
@@ -40,16 +40,6 @@ interface NavBarProps {
   theme: DefaultTheme;
   children?: any;
 }
-
-const slideInLeft = keyframes`
-  from {
-    width: 0px;
-  }
-
-  to {
-    width: 320px;
-  }
-`;
 
 const Root = styled.div`
   background-color: ${({ theme }) => theme.colors.background};
@@ -143,15 +133,17 @@ const DropdownMenu = styled.div`
 const MobileRoot = styled.div`
   position: absolute;
   right: 0;
-  top: 0;
+  top: -100vh;
   width: 320px;
+  overflow-y: auto;
+  overflow-x: hidden;
   height: 100vh;
   z-index: 4;
-  background-color: ${({ theme }) => theme.colors.accent.default};
   display: none;
+  background-color: ${({ theme }) => theme.colors.accent.default};
   padding: 40px;
   box-sizing: border-box;
-  animation: ${slideInLeft} 0.1s ease-out;
+  transition: top 0.3s ease-out;
   @media (max-width: ${({ theme }) => theme.breakPoints.desktop}) {
     display: block;
   }
@@ -172,7 +164,6 @@ const MobileDropDown = styled.div`
   transition: all 0.1s linear;
   cursor: pointer;
 
-  color: red;
   &:hover {
     background-color: ${({ theme }) => theme.colors.accent.dark};
   }
@@ -197,6 +188,23 @@ const MobileDropDownMenu = styled.div<{ isActive: boolean }>`
   box-sizing: border-box;
   transition: max-height 0.2s ease-out;
   overflow: hidden;
+`;
+
+const MobileNormalLink = styled.a`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 16px;
+  padding: 8px 12px;
+  box-sizing: border-box;
+  transition: all 0.1s linear;
+  cursor: pointer;
+
+  text-decoration: none;
+  &:hover {
+    background-color: ${({ theme }) => theme.colors.accent.dark};
+  }
 `;
 
 const HamburgerButton = styled.button`
@@ -270,28 +278,42 @@ const MobileDropDownLink = withTheme(
   }
 );
 
-const MobileNav = () => {
-  return (
-    <MobileRoot>
-      <MobileLinks>
-        {navData.map((data, index) => {
-          if (data.sectionTitle)
+const MobileNav = withTheme(
+  (props: { theme: DefaultTheme; className: any }) => {
+    return (
+      <MobileRoot {...props}>
+        <MobileLinks>
+          {navData.map((data, index) => {
+            if (data.sectionTitle)
+              return (
+                <MobileDropDownLink
+                  sectionTitle={data.sectionTitle}
+                  key={index}>
+                  {data.links.map((linkData, dIndex) => (
+                    <Link to={linkData.route} key={index + dIndex}>
+                      <MobileMenuItem>
+                        <Text variant="small">{linkData.title}</Text>
+                      </MobileMenuItem>
+                    </Link>
+                  ))}
+                </MobileDropDownLink>
+              );
             return (
-              <MobileDropDownLink sectionTitle={data.sectionTitle} key={index}>
-                {data.links.map((linkData, dIndex) => (
-                  <Link to={linkData.route} key={index + dIndex}>
-                    <MobileMenuItem>
-                      <Text variant="small">{linkData.title}</Text>
-                    </MobileMenuItem>
-                  </Link>
-                ))}
-              </MobileDropDownLink>
+              <MobileNormalLink href={data.route}>
+                <Text
+                  variant="small"
+                  weight="700"
+                  color={props.theme.colors.cta.default}>
+                  {data.title}
+                </Text>
+              </MobileNormalLink>
             );
-        })}
-      </MobileLinks>
-    </MobileRoot>
-  );
-};
+          })}
+        </MobileLinks>
+      </MobileRoot>
+    );
+  }
+);
 
 const NavBar: React.FC<NavBarProps> = (props: NavBarProps) => {
   const [navOpen, setNavOpen] = useState(false);
@@ -331,7 +353,7 @@ const NavBar: React.FC<NavBarProps> = (props: NavBarProps) => {
           <span className="hamburger-inner"></span>
         </span>
       </HamburgerButton>
-      {navOpen && <MobileNav></MobileNav>}
+      <MobileNav className={navOpen ? "nav-open nv-open" : ""}></MobileNav>
     </Root>
   );
 };
