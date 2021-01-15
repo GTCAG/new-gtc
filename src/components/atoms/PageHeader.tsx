@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
 
 interface PageHeaderProps {
@@ -6,6 +6,7 @@ interface PageHeaderProps {
   children?: any;
   height?: string;
   opacity?: string;
+  bgLoad?: () => void;
 }
 
 const Root = styled.div<PageHeaderProps>`
@@ -38,6 +39,16 @@ const Root = styled.div<PageHeaderProps>`
 `;
 
 const PageHeader: React.FC<PageHeaderProps> = (props: PageHeaderProps) => {
+  // onBgLoad functionality
+  useEffect(() => {
+    const imagePreLoader = document.createElement("img");
+    if (props.img) {
+      imagePreLoader.src = props.img;
+      imagePreLoader.onload = () => {
+        if (props.bgLoad) props.bgLoad();
+      };
+    }
+  });
   return <Root {...props}>{props.children}</Root>;
 };
 

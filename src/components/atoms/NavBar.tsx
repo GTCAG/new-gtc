@@ -299,7 +299,7 @@ const MobileNav = withTheme(
                 </MobileDropDownLink>
               );
             return (
-              <MobileNormalLink href={data.route}>
+              <MobileNormalLink href={data.route} key={index}>
                 <Text
                   variant="small"
                   weight="700"

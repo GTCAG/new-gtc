@@ -19,7 +19,7 @@ const TestPage: React.FC = () => {
   return (
     <Root>
       <NavBar />
-      <PageHeader img={testImg}>
+      <PageHeader img={testImg} bgLoad={() => console.log("LOADED")}>
         <Display color="#ffffff">Display Text</Display>
         <Text color="#fff">Hello Text</Text>
       </PageHeader>
