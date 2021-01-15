@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import styled, { withTheme, DefaultTheme, keyframes } from "styled-components";
 import logoImg from "../../images/GTC-Logo.svg";
 import arrowImg from "../../images/chevron_down.svg";
 import Text from "../texts/Text";
-import { Link } from "react-router-dom";
+import { Link as RouteLink } from "react-router-dom";
+import ChevronDown from "../svgs/ChevronDown";
 
 const navData = [
   {
@@ -23,7 +24,7 @@ const navData = [
     ],
   },
   {
-    sectionTitle: "Resouces",
+    sectionTitle: "Resources",
     links: [
       { title: "Media", route: "/Media" },
       { title: "Contact Us", route: "/contact" },
@@ -85,6 +86,10 @@ const Links = styled.div`
   }
 `;
 
+const Link = styled(RouteLink)`
+  text-decoration: none;
+`;
+
 const Dropdown = styled.div`
   display: flex;
   align-items: center;
@@ -125,12 +130,6 @@ const DropdownItem = styled.div`
   }
 `;
 
-const DropdownIcon = styled.img`
-  height: 18px;
-  width: 18px;
-  margin-left: 4px;
-`;
-
 const DropdownMenu = styled.div`
   position: absolute;
   top: 100%;
@@ -150,10 +149,54 @@ const MobileRoot = styled.div`
   z-index: 4;
   background-color: ${({ theme }) => theme.colors.accent.default};
   display: none;
+  padding: 40px;
+  box-sizing: border-box;
   animation: ${slideInLeft} 0.1s ease-out;
   @media (max-width: ${({ theme }) => theme.breakPoints.desktop}) {
     display: block;
   }
+`;
+
+const MobileLinks = styled.div`
+  margin-top: 100px;
+`;
+
+const MobileDropDown = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 16px;
+  padding: 8px 12px;
+  box-sizing: border-box;
+  transition: all 0.1s linear;
+  cursor: pointer;
+
+  color: red;
+  &:hover {
+    background-color: ${({ theme }) => theme.colors.accent.dark};
+  }
+`;
+
+const MobileDropDownIcon = styled.img`
+  width: 20px;
+  height: 20px;
+`;
+
+const IconContainer = styled.div`
+  margin-left: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+const MobileDropDownMenu = styled.div<{ isActive: boolean }>`
+  width: 100%;
+  max-height: 0;
+  padding: 0px 8px;
+  box-sizing: border-box;
+  transition: max-height 0.2s ease-out;
+  overflow: hidden;
 `;
 
 const HamburgerButton = styled.button`
@@ -161,6 +204,17 @@ const HamburgerButton = styled.button`
   z-index: 5;
   @media (max-width: ${({ theme }) => theme.breakPoints.desktop}) {
     display: block;
+  }
+`;
+
+const MobileMenuItem = styled.div`
+  padding: 8px 12px;
+  text-decoration: none;
+
+  color: ${({ theme }) => theme.colors.primary.default};
+
+  &:hover {
+    background-color: ${({ theme }) => theme.colors.accent.dark};
   }
 `;
 
@@ -173,14 +227,70 @@ const DropdownLink = withTheme(({ children, theme, title }) => {
       <Text variant="x-small" color={theme.colors.lights.offWhite}>
         {title}
       </Text>
-      <DropdownIcon src={arrowImg} />
+      <IconContainer>
+        <ChevronDown color={"white"} />
+      </IconContainer>
       {menuOpen && <DropdownMenu>{children}</DropdownMenu>}
     </Dropdown>
   );
 });
 
+const MobileDropDownLink = withTheme(
+  ({
+    sectionTitle,
+    children,
+    theme,
+  }: {
+    sectionTitle: string;
+    children: any;
+    theme: DefaultTheme;
+  }) => {
+    const [isActive, setActive] = useState(false);
+    const menuEl = useRef<HTMLDivElement | null>(null);
+    useEffect(() => {
+      const currentEl = menuEl.current;
+      if (currentEl && currentEl.style) {
+        if (isActive) currentEl.style.maxHeight = currentEl.scrollHeight + "px";
+        else currentEl.style.maxHeight = "0px";
+      }
+    }, [isActive]);
+    return (
+      <div>
+        <MobileDropDown onClick={() => setActive(!isActive)}>
+          <Text variant="medium" weight="700" color={theme.colors.cta.default}>
+            {sectionTitle}
+          </Text>
+          <MobileDropDownIcon src={arrowImg} />
+        </MobileDropDown>
+        <MobileDropDownMenu ref={menuEl} isActive={isActive}>
+          {children}
+        </MobileDropDownMenu>
+      </div>
+    );
+  }
+);
+
 const MobileNav = () => {
-  return <MobileRoot></MobileRoot>;
+  return (
+    <MobileRoot>
+      <MobileLinks>
+        {navData.map((data, index) => {
+          if (data.sectionTitle)
+            return (
+              <MobileDropDownLink sectionTitle={data.sectionTitle} key={index}>
+                {data.links.map((linkData, dIndex) => (
+                  <Link to={linkData.route} key={index + dIndex}>
+                    <MobileMenuItem>
+                      <Text variant="small">{linkData.title}</Text>
+                    </MobileMenuItem>
+                  </Link>
+                ))}
+              </MobileDropDownLink>
+            );
+        })}
+      </MobileLinks>
+    </MobileRoot>
+  );
 };
 
 const NavBar: React.FC<NavBarProps> = (props: NavBarProps) => {

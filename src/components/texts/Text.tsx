@@ -12,6 +12,7 @@ const Root = styled.p<TextProps>`
   ${({ theme }) => theme.fonts.text};
   font-weight: ${({ weight }) => weight || "normal"};
   letter-spacing: 0.75px;
+  text-decoration: none;
   color: ${(props) => props.color || props.theme.colors.primary.default};
   font-size: ${(props) => {
     switch (props.variant) {
