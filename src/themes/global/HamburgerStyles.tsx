@@ -23,13 +23,9 @@ const HamburgerStyles = createGlobalStyle`
         margin: 0;
         overflow: visible; 
         opacity: 0.7;
-        transition: transform 0.1s ease-out;
+        transition: all 0.1s ease-out;
     }
-    // .hamburger.is-active {
-    //     transform: translateX(40px);
-    // }
     .hamburger:hover {
-        background-color: ${({ theme }) => theme.colors.accent.default}20;
     opacity: 1; }
     .hamburger.is-active:hover {
     opacity: 1; }
