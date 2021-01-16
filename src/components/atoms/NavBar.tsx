@@ -56,9 +56,9 @@ const Root = styled.div`
 
   user-select: none;
 
-  @media (max-width: ${({ theme }) => theme.breakPoints.desktop}) {
-    justify-content: space-between;
-  }
+  justify-content: space-between;
+  // @media (max-width: ${({ theme }) => theme.breakPoints.desktop}) {
+  // }
 `;
 
 const Logo = styled.img`

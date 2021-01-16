@@ -23,7 +23,7 @@ const MarginHeader = styled.div`
 const TestPage: React.FC = () => {
   return (
     <Root>
-      <NavBar />
+      {/* <NavBar /> */}
       <PageHeader
         alignItems="flex-start"
         img={testImg}
