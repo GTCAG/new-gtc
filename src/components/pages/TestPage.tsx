@@ -15,13 +15,23 @@ const Root = styled.div`
   flex-direction: column;
 `;
 
+const MarginHeader = styled.div`
+  margin-left: 100px;
+`;
+
+const Header = styled.div``;
+
 const TestPage: React.FC = () => {
   return (
     <Root>
       <NavBar />
-      <PageHeader img={testImg} bgLoad={() => console.log("LOADED")}>
-        <Display color="#ffffff">Display Text</Display>
-        <Text color="#fff">Hello Text</Text>
+      <PageHeader
+        alignItems="flex-start"
+        img={testImg}
+        bgLoad={() => console.log("LOADED")}>
+        <MarginHeader>
+          <Text color="white">test</Text>
+        </MarginHeader>
       </PageHeader>
     </Root>
   );

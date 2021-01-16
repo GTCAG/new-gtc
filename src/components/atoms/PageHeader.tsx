@@ -6,6 +6,8 @@ interface PageHeaderProps {
   children?: any;
   height?: string;
   opacity?: string;
+  justifyContent?: string;
+  alignItems?: string;
   bgLoad?: () => void;
 }
 
@@ -15,8 +17,8 @@ const Root = styled.div<PageHeaderProps>`
 
   position: relative;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: ${(props) => props.justifyContent || "center"};
+  align-items: ${(props) => props.alignItems || "center"};
   flex-direction: column;
 
   &::before {
