@@ -5,6 +5,7 @@ import Display from "../texts/Display";
 import Text from "../texts/Text";
 import testImg from "../../images/cafe.jpg";
 import NavBar from "../atoms/NavBar";
+import Button from "../input/Button";
 
 const Root = styled.div`
   width: 100%;
@@ -19,8 +20,6 @@ const MarginHeader = styled.div`
   margin-left: 100px;
 `;
 
-const Header = styled.div``;
-
 const TestPage: React.FC = () => {
   return (
     <Root>
@@ -30,7 +29,8 @@ const TestPage: React.FC = () => {
         img={testImg}
         bgLoad={() => console.log("LOADED")}>
         <MarginHeader>
-          <Text color="white">test</Text>
+          <Button>Visit Us</Button>
+          <Button variant="secondary">Contact Us</Button>
         </MarginHeader>
       </PageHeader>
     </Root>
