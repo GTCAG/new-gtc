@@ -7,6 +7,7 @@ interface PageHeaderProps {
   height?: string;
   opacity?: string;
   justifyContent?: string;
+  filter?: string;
   alignItems?: string;
   bgLoad?: () => void;
 }
@@ -29,6 +30,7 @@ const Root = styled.div<PageHeaderProps>`
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
+    filter: ${(props) => props.filter};
 
     opacity: ${({ opacity }) => opacity || "0.2"};
     position: absolute;
