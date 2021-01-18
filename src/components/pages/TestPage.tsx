@@ -1,11 +1,9 @@
 import React from "react";
 import styled from "styled-components";
 import PageHeader from "../atoms/PageHeader";
-import Display from "../texts/Display";
-import Text from "../texts/Text";
 import testImg from "../../images/cafe.jpg";
-import NavBar from "../atoms/NavBar";
 import Button from "../input/Button";
+import Footer from "../atoms/Footer";
 
 const Root = styled.div`
   width: 100%;
@@ -23,7 +21,6 @@ const MarginHeader = styled.div`
 const TestPage: React.FC = () => {
   return (
     <Root>
-      {/* <NavBar /> */}
       <PageHeader
         alignItems="flex-start"
         img={testImg}
@@ -33,6 +30,7 @@ const TestPage: React.FC = () => {
           <Button variant="secondary">Contact Us</Button>
         </MarginHeader>
       </PageHeader>
+      <Footer />
     </Root>
   );
 };

@@ -6,6 +6,7 @@ import Text from "../texts/Text";
 import Display from "../texts/Display";
 import Button from "../input/Button";
 import Underlined from "../texts/Underlined";
+import Footer from "../atoms/Footer";
 
 interface HomePageProps {
   theme?: DefaultTheme;
@@ -152,6 +153,7 @@ const HomePage: React.FC<HomePageProps> = ({ theme }) => {
           this mission until Christ returns.
         </MissionText>
       </MissionStatement>
+      <Footer />
     </Root>
   );
 };

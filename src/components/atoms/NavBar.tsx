@@ -5,36 +5,7 @@ import arrowImg from "../../images/chevron_down.svg";
 import Text from "../texts/Text";
 import { Link as RouteLink } from "react-router-dom";
 import ChevronDown from "../svgs/ChevronDown";
-
-const navData = [
-  {
-    sectionTitle: "Who We Are",
-    links: [
-      { title: "What We Believe", route: "/belief" },
-      { title: "Our Story", route: "/story" },
-      { title: "Leadership", route: "/leadership" },
-    ],
-  },
-  {
-    sectionTitle: "Our Ministries",
-    links: [
-      { title: "Youth", route: "/youth" },
-      { title: "Kids", route: "/kids" },
-      { title: "GTC Cafe", route: "/cafe" },
-    ],
-  },
-  {
-    sectionTitle: "Resources",
-    links: [
-      { title: "Media", route: "/Media" },
-      { title: "Contact Us", route: "/contact" },
-    ],
-  },
-  {
-    title: "Give Back",
-    route: "https://www.google.com",
-  },
-];
+import navData from "../../data/nav-data";
 
 interface NavBarProps {
   theme: DefaultTheme;
