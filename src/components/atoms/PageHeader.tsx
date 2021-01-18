@@ -10,6 +10,7 @@ interface PageHeaderProps {
   filter?: string;
   alignItems?: string;
   bgLoad?: () => void;
+  backgroundPosition?: string;
 }
 
 const Root = styled.div<PageHeaderProps>`
@@ -26,7 +27,7 @@ const Root = styled.div<PageHeaderProps>`
     content: "";
     background-image: url(${({ img }) => img});
     background-color: ${({ theme }) => theme.colors.background};
-    background-position: center;
+    background-position: ${(props) => props.backgroundPosition || "center"};
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;

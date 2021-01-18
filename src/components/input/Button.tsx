@@ -3,7 +3,6 @@ import styled from "styled-components";
 
 interface ButtonProps {
   variant?: "primary" | "secondary";
-  anchorMode?: boolean;
   href?: string;
   children?: any;
   width?: string;
@@ -58,7 +57,7 @@ const ButtonFill = styled.div<ButtonProps>`
 
 const Button: React.FC<ButtonProps> = (props: ButtonProps) => {
   return (
-    <Root as={props.anchorMode ? "a" : "button"} {...props}>
+    <Root as={props.href ? "a" : "button"} {...props}>
       <ButtonFill {...{ ...props, children: null }} />
       {props.children}
     </Root>

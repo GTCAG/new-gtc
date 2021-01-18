@@ -3,12 +3,14 @@ import styled from "styled-components";
 
 interface UnderlinedProps {
   children?: any;
-  link?: any;
+  href?: string;
 }
 
-const Root = styled.span`
+const Root = styled.span<UnderlinedProps>`
   color: ${({ theme }) => theme.colors.cta.default};
   position: relative;
+  ${(props) => (props.href ? `cursor: pointer;` : "")};
+  text-decoration: none;
   ::after {
     content: "";
     width: 100%;
@@ -19,14 +21,14 @@ const Root = styled.span`
     transition: height 0.2s ease-out;
     background-color: ${({ theme }) => theme.colors.cta.default};
   }
-
-  &:hover:after {
-    height: 50px;
-  }
 `;
 
 const Underlined: React.FC<UnderlinedProps> = (props) => {
-  return <Root>{props.children}</Root>;
+  return (
+    <Root as={props.href ? "a" : "span"} {...props}>
+      {props.children}
+    </Root>
+  );
 };
 
 export default Underlined;

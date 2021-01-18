@@ -1,7 +1,7 @@
 import React from "react";
 import styled, { DefaultTheme, withTheme } from "styled-components";
 import PageHeader from "../atoms/PageHeader";
-import headerBgImg from "../../images/cafe.jpg";
+import headerBgImg from "../../images/service.jpg";
 import Text from "../texts/Text";
 import Display from "../texts/Display";
 import Button from "../input/Button";
@@ -35,7 +35,17 @@ const HeaderCTAContainer = styled.div`
 const HeaderCTA = styled.div`
   height: 443px;
   width: 530px;
-  margin-left: 153px;
+  margin: 0 153px;
+
+  @media (max-width: ${({ theme }) => theme.breakPoints.tablet}) {
+    margin: 0 ${({ theme }) => theme.dimensions.margins.tablet};
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakPoints.mobile}) {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  }
 `;
 
 const CTAColor = styled.span`
@@ -45,8 +55,22 @@ const CTAColor = styled.span`
 const CTAButtons = styled.div`
   display: flex;
   margin-top: 40px;
-  width: 413px;
+  max-width: 413px;
+  width: 100%;
   justify-content: space-between;
+
+  @media (max-width: ${({ theme }) => theme.breakPoints.mobile}) {
+    flex-direction: column;
+    width: 100%;
+
+    button {
+      width: 100%;
+    }
+
+    a {
+      width: 100%;
+    }
+  }
 `;
 
 const CTABlurb = styled.div`
@@ -54,9 +78,23 @@ const CTABlurb = styled.div`
   width: 357px;
 `;
 
-const CTAUnderlined = styled.span`
-  color: ${({ theme }) => theme.colors.cta.default};
-  text-decoration: underline;
+const MissionStatement = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: ${({ theme }) => theme.colors.primary.default};
+  height: 409px;
+  width: 100%;
+  text-align: center;
+`;
+
+const MissionText = styled(Text)`
+  max-width: 920px;
+  padding: 0px ${({ theme }) => theme.dimensions.margins.dekstop};
+
+  @media (max-width: ${({ theme }) => theme.breakPoints.tablet}) {
+    padding: 0px ${({ theme }) => theme.dimensions.margins.tablet};
+  }
 `;
 
 const HomePage: React.FC<HomePageProps> = ({ theme }) => {
@@ -94,14 +132,26 @@ const HomePage: React.FC<HomePageProps> = ({ theme }) => {
                   variant="medium"
                   weight="500"
                   color={theme?.colors.lights.offWhite}>
-                  Join our livestream on <Underlined>YouTube</Underlined> at
-                  9:00am-10:30am or 11:30am-1:00pm
+                  Join our livestream on{" "}
+                  <Underlined href="https://www.google.com">YouTube</Underlined>{" "}
+                  at 9:00am-10:30am or 11:30am-1:00pm
                 </Text>
               </CTABlurb>
             </HeaderCTA>
           </HeaderCTAContainer>
         </CenterContainer>
       </PageHeader>
+      <MissionStatement>
+        <MissionText
+          variant="large"
+          weight="500"
+          color={theme?.colors.lights.offWhite}>
+          The mission of Grace Trinity Church has everything to do with the
+          desire to see the Gospel spread by word and deed throughout the city
+          of Sacramento. In our local church context, we will be committed to
+          this mission until Christ returns.
+        </MissionText>
+      </MissionStatement>
     </Root>
   );
 };

@@ -49,16 +49,20 @@ const Root = styled.div`
 
   display: flex;
   align-items: center;
+  justify-content: space-between;
 
   box-sizing: border-box;
   padding: 0 ${({ theme }) => theme.dimensions.margins.dekstop};
   max-width: ${({ theme }) => theme.dimensions.maxWidth};
-
   user-select: none;
 
-  justify-content: space-between;
-  // @media (max-width: ${({ theme }) => theme.breakPoints.desktop}) {
-  // }
+  @media (max-width: ${({ theme }) => theme.breakPoints.tablet}) {
+    padding: 0 ${({ theme }) => theme.dimensions.margins.tablet};
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakPoints.mobile}) {
+    padding: 0 ${({ theme }) => theme.dimensions.margins.mobile};
+  }
 `;
 
 const Logo = styled.img`
