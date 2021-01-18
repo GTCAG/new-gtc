@@ -33,7 +33,7 @@ const mainTheme: DefaultTheme = {
     maxWidth: "1300px",
   },
   breakPoints: {
-    desktop: "1000px",
+    desktop: "920px",
     tablet: "720px",
     mobile: "500px",
   },

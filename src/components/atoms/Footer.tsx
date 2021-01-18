@@ -20,11 +20,14 @@ const CenterMaxWidth = styled.div`
 const Root = styled.footer`
   display: flex;
   width: 100%;
-  height: 350px;
   max-width: ${({ theme }) => theme.dimensions.maxWidth};
   justify-content: space-between;
   box-sizing: border-box;
   padding: 70px ${({ theme }) => theme.dimensions.margins.dekstop};
+
+  @media (max-width: ${({ theme }) => theme.breakPoints.desktop}) {
+    flex-direction: column;
+  }
 `;
 
 const Logo = styled.img`
@@ -39,19 +42,34 @@ const ContactDetails = styled.div`
   display: flex;
   justify-content: space-between;
   flex-direction: column;
+  @media (max-width: ${({ theme }) => theme.breakPoints.desktop}) {
+    margin: 16px 0px;
+  }
 `;
 
 const FlexContainer = styled.div`
   display: flex;
+
+  @media (max-width: ${({ theme }) => theme.breakPoints.desktop}) {
+    flex-direction: column;
+  }
 `;
 
-const LinkSection = styled.div``;
+const LinkSection = styled.div`
+  @media (max-width: ${({ theme }) => theme.breakPoints.desktop}) {
+    margin-bottom: 16px;
+  }
+`;
 
 const FooterLink = styled(Link)`
   text-decoration: none;
   margin-bottom: 10px;
   p {
     color: ${({ theme }) => theme.colors.primary.light};
+  }
+
+  &:hover p {
+    color: ${({ theme }) => theme.colors.cta.default};
   }
 `;
 
