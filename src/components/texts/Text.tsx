@@ -6,6 +6,7 @@ interface TextProps {
   weight?: string;
   color?: string;
   children?: any;
+  style?: any;
 }
 
 const Root = styled.p<TextProps>`

@@ -6,6 +6,7 @@ interface DisplayProps {
   weight?: string;
   color?: string;
   children?: any;
+  style?: any;
 }
 
 const Root = styled.h2<DisplayProps>`

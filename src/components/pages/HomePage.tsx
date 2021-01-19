@@ -153,7 +153,6 @@ const HomePage: React.FC<HomePageProps> = ({ theme }) => {
           this mission until Christ returns.
         </MissionText>
       </MissionStatement>
-      <Footer />
     </Root>
   );
 };
