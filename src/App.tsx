@@ -6,6 +6,7 @@ import HomePage from "./components/pages/HomePage";
 import TestPage from "./components/pages/TestPage";
 import styled from "styled-components";
 import CafePage from "./components/pages/CafePage";
+import BeliefPage from "./components/pages/BeliefPage";
 
 const AppRoot = styled.div`
   width: 100%;
@@ -30,6 +31,10 @@ function App() {
 
       <Route exact path="/cafe">
         <CafePage />
+      </Route>
+
+      <Route exact path="/belief">
+        <BeliefPage />
       </Route>
       <Footer />
     </AppRoot>
