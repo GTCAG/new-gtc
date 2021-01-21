@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { Route } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { Route, useLocation } from "react-router-dom";
 import NavBar from "./components/atoms/NavBar";
 import Footer from "./components/atoms/Footer";
 import HomePage from "./components/pages/HomePage";
@@ -38,8 +38,16 @@ const ContentRoot = styled.div<ContentProps>`
 `;
 
 const App: React.FC<AppProps> = ({ theme }) => {
+  const location = useLocation();
   const [loaded, setLoaded] = useState(false);
   const [loaderHidden, setLoaderHidden] = useState(false);
+
+  useEffect(() => {
+    if (location.pathname !== "/" && !loaded) {
+      setLoaded(true);
+    }
+  }, [location, loaded]);
+
   const handleLoaded = () => {
     setTimeout(() => {
       setLoaded(true);
@@ -51,10 +59,14 @@ const App: React.FC<AppProps> = ({ theme }) => {
 
   return (
     <AppRoot>
-      <div
-        className={`loader ${loaded && "loaded"} ${loaderHidden && "hidden"}`}>
-        <GTCLogo color={theme.colors.cta.default} />
-      </div>
+      <Route exact path="/">
+        <div
+          className={`loader ${loaded && "loaded"} ${
+            loaderHidden && "hidden"
+          }`}>
+          <GTCLogo color={theme.colors.cta.default} />
+        </div>
+      </Route>
       <ContentRoot hidden={!loaded}>
         <NavBar />
         <Route exact path="/">
