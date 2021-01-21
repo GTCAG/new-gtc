@@ -21,7 +21,7 @@ const GlobalStyles = createGlobalStyle`
         justify-content: center;
         align-items: center;
         opacity: 1;
-        transition: opacity 0.85s ease-in-out;
+        transition: opacity 0.4s ease-in-out;
     }
 
     .loader.loaded {

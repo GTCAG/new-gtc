@@ -108,7 +108,7 @@ const HomePage: React.FC<HomePageProps> = ({ theme, onLoaded }) => {
         <CenterContainer>
           <HeaderCTAContainer>
             <HeaderCTA>
-              <SlideUp delay="0.8s">
+              <SlideUp delay="0.6s">
                 <Text
                   variant="medium"
                   weight="500"
@@ -116,7 +116,7 @@ const HomePage: React.FC<HomePageProps> = ({ theme, onLoaded }) => {
                   Together We Build
                 </Text>
               </SlideUp>
-              <SlideUp delay="1.2s">
+              <SlideUp delay="1s">
                 <Display
                   variant="large"
                   weight="bold"
@@ -128,14 +128,14 @@ const HomePage: React.FC<HomePageProps> = ({ theme, onLoaded }) => {
                 </Display>
               </SlideUp>
               <CTAButtons>
-                <SlideUp delay="1.4s">
+                <SlideUp delay="1.2s">
                   <Button>Visit Us</Button>
                 </SlideUp>
-                <SlideUp delay="1.5s">
+                <SlideUp delay="1.3s">
                   <Button variant="secondary">Learn More</Button>
                 </SlideUp>
               </CTAButtons>
-              <SlideUp delay="1.6s" style={{ marginTop: 103 }}>
+              <SlideUp delay="1.4s" style={{ marginTop: 103 }}>
                 <CTABlurb>
                   <Text
                     variant="medium"

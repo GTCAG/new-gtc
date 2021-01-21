@@ -203,6 +203,7 @@ const MobileMenuItem = styled.div`
 
 const DropdownLink = withTheme(({ children, theme, title }) => {
   const [menuOpen, setMenuOpen] = useState(false);
+
   return (
     <Dropdown
       onMouseEnter={() => setMenuOpen(true)}
@@ -213,7 +214,11 @@ const DropdownLink = withTheme(({ children, theme, title }) => {
       <IconContainer>
         <ChevronDown color={"white"} />
       </IconContainer>
-      {menuOpen && <DropdownMenu>{children}</DropdownMenu>}
+      {menuOpen && (
+        <DropdownMenu onClick={() => setMenuOpen(false)}>
+          {children}
+        </DropdownMenu>
+      )}
     </Dropdown>
   );
 });
@@ -292,9 +297,12 @@ const MobileNav = withTheme(
 
 const NavBar: React.FC<NavBarProps> = (props: NavBarProps) => {
   const [navOpen, setNavOpen] = useState(false);
+
   return (
     <Root>
-      <Logo src={logoImg} />
+      <Link to="/">
+        <Logo src={logoImg} />
+      </Link>
       <Links>
         {navData.map((data, index) => {
           if (data.sectionTitle)
