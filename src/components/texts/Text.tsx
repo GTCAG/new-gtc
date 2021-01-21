@@ -6,7 +6,7 @@ interface TextProps {
   weight?: string;
   color?: string;
   children?: any;
-  style?: any;
+  style?: React.CSSProperties;
 }
 
 const Root = styled.p<TextProps>`

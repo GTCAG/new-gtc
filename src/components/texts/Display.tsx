@@ -6,7 +6,7 @@ interface DisplayProps {
   weight?: string;
   color?: string;
   children?: any;
-  style?: any;
+  style?: React.CSSProperties;
 }
 
 const Root = styled.h2<DisplayProps>`
