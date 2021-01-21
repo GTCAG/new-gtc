@@ -6,9 +6,11 @@ import Text from "../texts/Text";
 import Display from "../texts/Display";
 import Button from "../input/Button";
 import Underlined from "../texts/Underlined";
+import SlideUp from "../animation-containers/SlideUp";
 
 interface HomePageProps {
   theme?: DefaultTheme;
+  onLoaded: () => void;
 }
 
 const Root = styled.div`
@@ -33,7 +35,6 @@ const HeaderCTAContainer = styled.div`
 `;
 
 const HeaderCTA = styled.div`
-  height: 443px;
   width: 530px;
   margin: 0 153px;
 
@@ -74,7 +75,6 @@ const CTAButtons = styled.div`
 `;
 
 const CTABlurb = styled.div`
-  margin-top: 103px;
   width: 357px;
 `;
 
@@ -97,46 +97,58 @@ const MissionText = styled(Text)`
   }
 `;
 
-const HomePage: React.FC<HomePageProps> = ({ theme }) => {
+const HomePage: React.FC<HomePageProps> = ({ theme, onLoaded }) => {
   return (
     <Root>
       <PageHeader
         img={headerBgImg}
         filter="grayscale(75%) brightness(1.2)"
-        bgLoad={() => console.log("Loaded Home Page")}
+        bgLoad={onLoaded}
         alignItems={"flex-start"}>
         <CenterContainer>
           <HeaderCTAContainer>
             <HeaderCTA>
-              <Text
-                variant="medium"
-                weight="500"
-                color={theme?.colors.lights.offWhite}>
-                Together We Build
-              </Text>
-              <Display
-                variant="large"
-                weight="bold"
-                color={theme?.colors.lights.offWhite}>
-                Our Faith
-                <br />
-                In
-                <CTAColor> Christ</CTAColor>
-              </Display>
-              <CTAButtons>
-                <Button>Visit Us</Button>
-                <Button variant="secondary">Learn More</Button>
-              </CTAButtons>
-              <CTABlurb>
+              <SlideUp delay="0.8s">
                 <Text
                   variant="medium"
                   weight="500"
                   color={theme?.colors.lights.offWhite}>
-                  Join our livestream on{" "}
-                  <Underlined href="https://www.google.com">YouTube</Underlined>{" "}
-                  at 9:00am-10:30am or 11:30am-1:00pm
+                  Together We Build
                 </Text>
-              </CTABlurb>
+              </SlideUp>
+              <SlideUp delay="1.2s">
+                <Display
+                  variant="large"
+                  weight="bold"
+                  color={theme?.colors.lights.offWhite}>
+                  Our Faith
+                  <br />
+                  In
+                  <CTAColor> Christ</CTAColor>
+                </Display>
+              </SlideUp>
+              <CTAButtons>
+                <SlideUp delay="1.4s">
+                  <Button>Visit Us</Button>
+                </SlideUp>
+                <SlideUp delay="1.5s">
+                  <Button variant="secondary">Learn More</Button>
+                </SlideUp>
+              </CTAButtons>
+              <SlideUp delay="1.6s" style={{ marginTop: 103 }}>
+                <CTABlurb>
+                  <Text
+                    variant="medium"
+                    weight="500"
+                    color={theme?.colors.lights.offWhite}>
+                    Join our livestream on{" "}
+                    <Underlined href="https://www.google.com">
+                      YouTube
+                    </Underlined>{" "}
+                    at 9:00am-10:30am or 11:30am-1:00pm
+                  </Text>
+                </CTABlurb>
+              </SlideUp>
             </HeaderCTA>
           </HeaderCTAContainer>
         </CenterContainer>
