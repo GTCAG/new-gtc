@@ -156,7 +156,7 @@ const IconContainer = styled.div`
   align-items: center;
 `;
 
-const MobileDropDownMenu = styled.div<{ isActive: boolean }>`
+const MobileDropDownMenu = styled.div`
   width: 100%;
   max-height: 0;
   padding: 0px 8px;
@@ -250,9 +250,7 @@ const MobileDropDownLink = withTheme(
           </Text>
           <MobileDropDownIcon src={arrowImg} />
         </MobileDropDown>
-        <MobileDropDownMenu ref={menuEl} isActive={isActive}>
-          {children}
-        </MobileDropDownMenu>
+        <MobileDropDownMenu ref={menuEl}>{children}</MobileDropDownMenu>
       </div>
     );
   }
