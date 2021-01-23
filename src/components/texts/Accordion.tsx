@@ -49,6 +49,7 @@ const TitleContainer = styled.div`
     background-color: ${({ theme }) => theme.colors.cta.default};
   }
 `;
+const IconContainer = styled.div``;
 
 const Accordian: React.FC<AccordianProps> = ({ theme, title, children }) => {
   const [open, setOpen] = useState(false);
@@ -66,10 +67,12 @@ const Accordian: React.FC<AccordianProps> = ({ theme, title, children }) => {
     <Root>
       <TitleContainer onClick={() => setOpen(!open)}>
         <InnerTitleBox>
-          <Text variant="medium" weight="500">
+          <Text variant="small" weight="500">
             {title}
           </Text>
-          {open ? <MinusCircle /> : <PlusCircle />}
+          <IconContainer>
+            {open ? <MinusCircle /> : <PlusCircle />}
+          </IconContainer>
         </InnerTitleBox>
       </TitleContainer>
       <ContentBox ref={contentEl}>
