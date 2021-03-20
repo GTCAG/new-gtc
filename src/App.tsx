@@ -8,6 +8,7 @@ import styled, { DefaultTheme, withTheme } from "styled-components";
 import CafePage from "./components/pages/CafePage";
 import BeliefPage from "./components/pages/BeliefPage";
 import GTCLogo from "./components/svgs/GTCLogo";
+import MediaPage from "./components/pages/MediaPage";
 
 interface ContentProps {
   hidden: boolean;
@@ -82,6 +83,9 @@ const App: React.FC<AppProps> = ({ theme }) => {
 
         <Route exact path="/belief">
           <BeliefPage />
+        </Route>
+        <Route exact path="/media">
+          <MediaPage />
         </Route>
         <Footer />
       </ContentRoot>

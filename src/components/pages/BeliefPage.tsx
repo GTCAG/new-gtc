@@ -6,6 +6,7 @@ import Display from "../texts/Display";
 import Text from "../texts/Text";
 import Underlined from "../texts/Underlined";
 import Accordion from "../texts/Accordion";
+import TitleBox from "../atoms/TitleBox";
 
 interface BeliefPageProps {
   theme: DefaultTheme;
@@ -22,20 +23,6 @@ const ContentSection = styled.div`
   align-items: center;
   position: relative;
   flex-direction: column;
-`;
-
-const TitleBox = styled.div`
-  position: absolute;
-  top: -137px;
-  left: 50%;
-  transform: translate(-50%);
-  width: 100%;
-  height: 274px;
-  max-width: 587px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: ${({ theme }) => theme.colors.cta.default};
 `;
 
 const Beliefs = styled.div`

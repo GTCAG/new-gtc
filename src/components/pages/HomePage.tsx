@@ -145,7 +145,7 @@ const HomePage: React.FC<HomePageProps> = ({ theme, onLoaded }) => {
                     <Underlined href="https://www.google.com">
                       YouTube
                     </Underlined>{" "}
-                    at 9:00am-10:30am or 11:30am-1:00pm
+                    at 10:00am-12:00pm
                   </Text>
                 </CTABlurb>
               </SlideUp>
