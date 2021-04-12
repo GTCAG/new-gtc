@@ -1,6 +1,5 @@
 import * as React from "react";
 import styled, { DefaultTheme, withTheme } from "styled-components";
-import Display from "../texts/Display";
 import Text from "../texts/Text";
 
 interface VideoItemProps {
@@ -46,14 +45,14 @@ const HoverBox = styled.div`
   height: 100%;
   background-color: ${({ theme }) => theme.colors.cta.default};
 
-  transition: all 0.2s linear;
+  transition: all 0.14s linear;
 `;
 
 const Root = styled.div`
   position: relative;
   width: 100%;
   height: 200px;
-  border: 10px solid ${({ theme }) => theme.colors.cta.default};
+  border: 5px solid ${({ theme }) => theme.colors.cta.default};
   box-sizing: border-box;
   overflow: hidden;
   cursor: pointer;

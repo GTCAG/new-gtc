@@ -7,6 +7,7 @@ import bgImg from "../../images/service.jpg";
 import PageSection from "../atoms/PageSection";
 import axios from "axios";
 import TitleBox from "../atoms/TitleBox";
+import HashLoader from "react-spinners/HashLoader";
 
 interface MediaPageProps {
   theme: DefaultTheme;
@@ -25,7 +26,7 @@ const Grid = styled.div`
 
 const MediaPage: React.FC<MediaPageProps> = ({ theme }) => {
   const [videos, setVideos] = useState<Video[]>([]);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   useEffect(() => {
     setLoading(true);
     axios
@@ -47,6 +48,18 @@ const MediaPage: React.FC<MediaPageProps> = ({ theme }) => {
         <TitleBox>
           <Display color={theme.colors.lights.offWhite}>Latest Videos</Display>
         </TitleBox>
+        {loading && (
+          <div
+            style={{
+              transform: "translateY(250px)",
+              width: "100%",
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+            }}>
+            <HashLoader color={theme.colors.accent.default} size={77} />
+          </div>
+        )}
         <Grid>
           {videos?.map((video) => (
             <VideoItem video={video} key={video.id.videoId} />
