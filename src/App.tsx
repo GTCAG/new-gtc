@@ -9,6 +9,8 @@ import CafePage from "./components/pages/CafePage";
 import BeliefPage from "./components/pages/BeliefPage";
 import GTCLogo from "./components/svgs/GTCLogo";
 import MediaPage from "./components/pages/MediaPage";
+import UnderConstructionPage from "./components/pages/UnderConstructionPage";
+import LeadershipPage from "./components/pages/LeadershipPage";
 
 interface ContentProps {
   hidden: boolean;
@@ -81,11 +83,26 @@ const App: React.FC<AppProps> = ({ theme }) => {
           <CafePage />
         </Route>
 
+        <Route exact path="/leadership">
+          <LeadershipPage />
+        </Route>
         <Route exact path="/belief">
           <BeliefPage />
         </Route>
         <Route exact path="/media">
           <MediaPage />
+        </Route>
+        <Route exact path="/youth">
+          <UnderConstructionPage />
+        </Route>
+        <Route exact path="/kids">
+          <UnderConstructionPage />
+        </Route>
+        <Route exact path="/story">
+          <UnderConstructionPage />
+        </Route>
+        <Route exact path="/contact">
+          <UnderConstructionPage />
         </Route>
         <Footer />
       </ContentRoot>

@@ -94,7 +94,7 @@ const Footer: React.FC<FooterProps> = ({ theme }) => {
               5821 Auburn Blvd, Sacramento, CA 95841
             </Text>
             <Text variant={textVariant} color={color}>
-              916-420-8178 Contact Us
+              (Phone Number to be determined) Contact Us
             </Text>
             <Text variant={textVariant} color={color}>
               Service Times: 9:00am-10:30am 11:30am-1:00pm

@@ -142,7 +142,7 @@ const HomePage: React.FC<HomePageProps> = ({ theme, onLoaded }) => {
                     weight="500"
                     color={theme?.colors.lights.offWhite}>
                     Join our livestream on{" "}
-                    <Underlined href="https://www.google.com">
+                    <Underlined href="https://www.youtube.com/channel/UCNaKPci4jHkzFyo2hYwlVRQ">
                       YouTube
                     </Underlined>{" "}
                     at 10:00am-12:00pm
@@ -158,10 +158,9 @@ const HomePage: React.FC<HomePageProps> = ({ theme, onLoaded }) => {
           variant="large"
           weight="500"
           color={theme?.colors.lights.offWhite}>
-          The mission of Grace Trinity Church has everything to do with the
-          desire to see the Gospel spread by word and deed throughout the city
-          of Sacramento. In our local church context, we will be committed to
-          this mission until Christ returns.
+          The mission of Grace Trinity Church is to glorify God by introducing
+          Jesus Christ as Lord to the city of Sacramento and more. Leading them
+          into a fully-devoted relationship with the one who set us free.
         </MissionText>
       </MissionStatement>
     </Root>
