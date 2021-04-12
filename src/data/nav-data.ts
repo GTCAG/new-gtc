@@ -24,7 +24,8 @@ const navData = [
   },
   {
     title: "Give Back",
-    route: "https://www.google.com",
+    route:
+      "https://www.paypal.com/donate/?cmd=_s-xclick&hosted_button_id=YJCTP942P8MRY",
     normal: true,
   },
 ];

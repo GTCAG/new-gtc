@@ -38,7 +38,7 @@ const MediaPage: React.FC<MediaPageProps> = ({ theme }) => {
 
   return (
     <Root>
-      <PageHeader height="800px" img={bgImg}>
+      <PageHeader height="600px" img={bgImg}>
         <Display variant="large" color={theme.colors.lights.offWhite}>
           Media
         </Display>

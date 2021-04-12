@@ -6,6 +6,7 @@ import Text from "../texts/Text";
 import Display from "../texts/Display";
 import Button from "../input/Button";
 import Underlined from "../texts/Underlined";
+import { useHistory } from "react-router-dom";
 import SlideUp from "../animation-containers/SlideUp";
 
 interface HomePageProps {
@@ -98,6 +99,7 @@ const MissionText = styled(Text)`
 `;
 
 const HomePage: React.FC<HomePageProps> = ({ theme, onLoaded }) => {
+  const history = useHistory();
   return (
     <Root>
       <PageHeader
@@ -132,7 +134,11 @@ const HomePage: React.FC<HomePageProps> = ({ theme, onLoaded }) => {
                   <Button>Visit Us</Button>
                 </SlideUp>
                 <SlideUp delay="1.1s">
-                  <Button variant="secondary">Learn More</Button>
+                  <Button
+                    variant="secondary"
+                    onClick={() => history.push("/media")}>
+                    View our Media
+                  </Button>
                 </SlideUp>
               </CTAButtons>
               <SlideUp delay="1.2s" style={{ marginTop: 103 }}>

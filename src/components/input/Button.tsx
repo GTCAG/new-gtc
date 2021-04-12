@@ -6,6 +6,7 @@ interface ButtonProps {
   href?: string;
   children?: any;
   width?: string;
+  onClick?: () => void;
 }
 
 const Root = styled.button<ButtonProps>`
