@@ -131,6 +131,12 @@ const MapView: React.FC = () => {
   const createGoogleMap = () => {
     // @ts-ignore
     const map = new window.google.maps.Map(mapRef.current, mapOptions);
+    // @ts-ignore
+    new window.google.maps.Marker({
+      position: location,
+      map,
+      title: "Grace Trinity Church Assemblies of God",
+    });
     return map;
   };
   // TODO add loading circle for maps?

@@ -10,6 +10,7 @@ import { useHistory } from "react-router-dom";
 import SlideUp from "../animation-containers/SlideUp";
 import PageSection from "../atoms/PageSection";
 import MapView from "../atoms/MapView";
+import NormalButton from "../input/NormalButton";
 
 interface HomePageProps {
   theme?: DefaultTheme;
@@ -133,7 +134,9 @@ const HomePage: React.FC<HomePageProps> = ({ theme, onLoaded }) => {
               </SlideUp>
               <CTAButtons>
                 <SlideUp delay="1s">
-                  <Button>Visit Us</Button>
+                  <Button href="https://www.google.com/maps/place/Grace+Trinity+Church/@38.6722806,-121.3308039,19z/data=!4m12!1m6!3m5!1s0x0:0x9f3daf42aa68e42f!2sGrace+Trinity+Church!8m2!3d38.6722971!4d-121.3305286!3m4!1s0x0:0x9f3daf42aa68e42f!8m2!3d38.6722971!4d-121.3305286?hl=en-US">
+                    Visit Us
+                  </Button>
                 </SlideUp>
                 <SlideUp delay="1.1s">
                   <Button
@@ -179,6 +182,9 @@ const HomePage: React.FC<HomePageProps> = ({ theme, onLoaded }) => {
           Come visit us in our building
         </Text>
         <MapView />
+        <NormalButton href="https://www.google.com/maps/place/Grace+Trinity+Church/@38.6722806,-121.3308039,19z/data=!4m12!1m6!3m5!1s0x0:0x9f3daf42aa68e42f!2sGrace+Trinity+Church!8m2!3d38.6722971!4d-121.3305286!3m4!1s0x0:0x9f3daf42aa68e42f!8m2!3d38.6722971!4d-121.3305286?hl=en-US">
+          View on Maps
+        </NormalButton>
       </PageSection>
     </Root>
   );
