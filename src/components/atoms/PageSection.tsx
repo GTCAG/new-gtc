@@ -3,6 +3,7 @@ import styled from "styled-components";
 
 interface PageSectionProps {
   bgColor?: string;
+  noMargin?: boolean;
   children: any;
 }
 
@@ -14,10 +15,10 @@ const Root = styled.div<PageSectionProps>`
   justify-content: center;
 `;
 
-const Constraints = styled.div`
+const Constraints = styled.div<PageSectionProps>`
   position: relative;
   width: 100%;
-  margin-bottom: 100px;
+  margin-bottom: ${({ noMargin }) => (noMargin ? 0 : 100)}px;
   padding: 0 ${({ theme }) => theme.dimensions.margins.dekstop};
   box-sizing: border-box;
   max-width: ${({ theme }) => theme.dimensions.maxWidth};
@@ -29,7 +30,7 @@ const PageSection: React.FC<PageSectionProps> = ({
 }: PageSectionProps) => {
   return (
     <Root {...rest}>
-      <Constraints>{children}</Constraints>
+      <Constraints {...rest}>{children}</Constraints>
     </Root>
   );
 };

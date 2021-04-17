@@ -30,7 +30,7 @@ const MediaPage: React.FC<MediaPageProps> = ({ theme }) => {
   useEffect(() => {
     setLoading(true);
     axios
-      .get("http://localhost:4001/videos")
+      .get("/videos")
       .then((res) => setVideos(res.data))
       .catch((err) => console.log("err", err))
       .finally(() => setLoading(false));

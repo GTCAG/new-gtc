@@ -8,6 +8,8 @@ import Button from "../input/Button";
 import Underlined from "../texts/Underlined";
 import { useHistory } from "react-router-dom";
 import SlideUp from "../animation-containers/SlideUp";
+import PageSection from "../atoms/PageSection";
+import MapView from "../atoms/MapView";
 
 interface HomePageProps {
   theme?: DefaultTheme;
@@ -169,6 +171,15 @@ const HomePage: React.FC<HomePageProps> = ({ theme, onLoaded }) => {
           into a fully-devoted relationship with the one who set us free.
         </MissionText>
       </MissionStatement>
+      <PageSection bgColor={theme?.colors.lights.offWhite}>
+        <Text
+          weight="bold"
+          variant="x-large"
+          style={{ textAlign: "center", marginTop: 48, marginBottom: 48 }}>
+          Come visit us in our building
+        </Text>
+        <MapView />
+      </PageSection>
     </Root>
   );
 };

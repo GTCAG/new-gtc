@@ -7,6 +7,7 @@ import { BrowserRouter as Router } from "react-router-dom";
 import CssReset from "./themes/global/CssReset";
 import GlobalStyles from "./themes/global/GlobalStyles";
 import HamburgerStyles from "./themes/global/HamburgerStyles";
+import "./util/axios-config";
 
 ReactDOM.render(
   <React.StrictMode>
