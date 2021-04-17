@@ -10,7 +10,6 @@ interface ButtonProps {
 }
 
 const Root = styled.button<ButtonProps>`
-  // width: ${(props) => props.width || "200px"};
   padding: 0 45px;
 
   display: flex;
