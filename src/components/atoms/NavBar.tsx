@@ -296,9 +296,13 @@ const MobileNav = withTheme(
 const NavBar: React.FC<NavBarProps> = (props: NavBarProps) => {
   const [navOpen, setNavOpen] = useState(false);
 
+  const toTop = () => {
+    window.scrollTo(0, 0);
+  };
+
   return (
     <Root>
-      <Link to="/">
+      <Link to="/" onClick={toTop}>
         <Logo src={logoImg} />
       </Link>
       <Links>
@@ -307,7 +311,7 @@ const NavBar: React.FC<NavBarProps> = (props: NavBarProps) => {
             return (
               <DropdownLink title={data.sectionTitle} key={index}>
                 {data.links.map((linkData, linkIndex) => (
-                  <Link to={linkData.route} key={linkIndex}>
+                  <Link to={linkData.route} key={linkIndex} onClick={toTop}>
                     <DropdownItem>
                       <Text variant="x-small">{linkData.title}</Text>
                     </DropdownItem>

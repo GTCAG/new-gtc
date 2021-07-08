@@ -84,6 +84,11 @@ const footerData = navData.filter((data) => data.sectionTitle);
 const Footer: React.FC<FooterProps> = ({ theme }) => {
   const textVariant = "x-small";
   const color = theme.colors.lights.white;
+
+  const toTop = () => {
+    window.scrollTo(0, 0);
+  };
+
   return (
     <CenterMaxWidth>
       <Root>
@@ -97,7 +102,7 @@ const Footer: React.FC<FooterProps> = ({ theme }) => {
               (Phone Number to be determined) Contact Us
             </Text>
             <Text variant={textVariant} color={color}>
-              Service Times: 9:00am-10:30am 11:30am-1:00pm
+              Service Times: 10:00am-12:00pm
             </Text>
           </ContactDetails>
         </FlexContainer>
@@ -105,7 +110,7 @@ const Footer: React.FC<FooterProps> = ({ theme }) => {
           <LinkSection key={index}>
             {sectionData.links?.map((linksData, linksIndex) => (
               <FooterLinkSpacer key={linksIndex + ":" + index}>
-                <FooterLink to={linksData.route}>
+                <FooterLink to={linksData.route} onClick={toTop}>
                   <Text variant={textVariant}>{linksData.title}</Text>
                 </FooterLink>
               </FooterLinkSpacer>

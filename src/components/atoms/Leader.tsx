@@ -8,17 +8,26 @@ interface LeaderProps {
   name: string;
   title: string;
 }
-const portraitWidth = 250;
-const portraitHeight = 250;
+
+const portraitWidth = 300;
+const portraitHeight = 200;
 
 const Root = styled.div`
   width: ${portraitWidth}px;
+  padding: 16px;
+  border: 1px solid ${({ theme }) => theme.colors.lights.offWhite};
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 `;
 
 const Portrait = styled.img`
   width: ${portraitWidth}px;
   height: ${portraitHeight}px;
   object-fit: cover;
+
+  filter: brightness(0.95);
+  position: relative;
 `;
 
 const NoPortrait = styled.div`
@@ -31,8 +40,10 @@ const NoPortrait = styled.div`
 `;
 
 const Bottom = styled.div`
-  //   height: 125px;
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
   border-bottom: 1px solid ${({ theme }) => theme.colors.accent.dark};
 `;
@@ -40,25 +51,27 @@ const Bottom = styled.div`
 const Leader: React.FC<LeaderProps> = ({ theme, image, title, name }) => {
   return (
     <Root>
-      {image ? (
-        <Portrait src="" />
-      ) : (
-        <NoPortrait>
-          <Text>No Image Available</Text>
-        </NoPortrait>
-      )}
-      <Bottom>
+      <div>
+        {image ? (
+          <Portrait src={image} />
+        ) : (
+          <NoPortrait>
+            <Text>No Image Available</Text>
+          </NoPortrait>
+        )}
         <Text
           variant="medium"
           weight="500"
           color={theme.colors.lights.offWhite}
-          style={{ marginTop: 16, marginBottom: 8 }}>
+          style={{ marginTop: 16, marginBottom: 8, textAlign: "center" }}>
           {name}
         </Text>
+      </div>
+      <Bottom>
         <Text
           variant="small"
           color={theme.colors.lights.offWhite}
-          style={{ marginBottom: 16 }}>
+          style={{ marginBottom: 16, opacity: 0.65 }}>
           {title}
         </Text>
       </Bottom>
