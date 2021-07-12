@@ -98,6 +98,7 @@ const MissionText = styled(Text)`
 
   @media (max-width: ${({ theme }) => theme.breakPoints.tablet}) {
     padding: 0px ${({ theme }) => theme.dimensions.margins.tablet};
+    font-size: 17.5px;
   }
 `;
 

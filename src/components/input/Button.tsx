@@ -43,23 +43,26 @@ const Root = styled.button<ButtonProps>`
         : props.theme.colors.lights.offWhite};
   }
   &:hover div {
-    top: ${(props) => (props.variant === "secondary" ? "-80px" : "-450px")};
+    transform: ${({ variant }) =>
+      variant === "secondary" ? "translateX(0%);" : "translateX(100%);"};
   }
 `;
 
 const ButtonFill = styled.div<ButtonProps>`
   position: absolute;
-  top: ${(props) => (props.variant === "secondary" ? "200px" : "-80px")};
-  left: -1px;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
   background-color: ${({ theme, variant }) =>
     variant === "secondary"
       ? theme.colors.accent.default
       : theme.colors.cta.default};
-  width: 350px;
-  height: 350px;
   z-index: -1;
-  transform: rotate(45deg) translateX(-5%);
-  transition: all 0.15s ease-out;
+  transform: ${({ variant }) =>
+    variant === "secondary" ? "translateX(-100%);" : "translateX(0%);"};
+
+  transition: all 0.37s ease;
 `;
 
 const Button: React.FC<ButtonProps> = (props: ButtonProps) => {
