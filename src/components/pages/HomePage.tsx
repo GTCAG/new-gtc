@@ -11,6 +11,7 @@ import SlideUp from "../animation-containers/SlideUp";
 import PageSection from "../atoms/PageSection";
 import MapView from "../atoms/MapView";
 import NormalButton from "../input/NormalButton";
+import Banner from "../banner/Banner";
 
 interface HomePageProps {
   theme?: DefaultTheme;
@@ -40,16 +41,18 @@ const HeaderCTAContainer = styled.div`
 
 const HeaderCTA = styled.div`
   width: 530px;
-  margin: 0 153px;
-
+  padding: 0 153px;
   @media (max-width: ${({ theme }) => theme.breakPoints.tablet}) {
-    margin: 0 ${({ theme }) => theme.dimensions.margins.tablet};
+    padding: 0 ${({ theme }) => theme.dimensions.margins.tablet};
   }
 
   @media (max-width: ${({ theme }) => theme.breakPoints.mobile}) {
     display: flex;
     justify-content: center;
     flex-direction: column;
+    text-align: center;
+    padding: 0 20px;
+    width: 100%;
   }
 `;
 
@@ -67,7 +70,10 @@ const CTAButtons = styled.div`
   @media (max-width: ${({ theme }) => theme.breakPoints.mobile}) {
     flex-direction: column;
     width: 100%;
-
+    max-width: initial;
+    & > * {
+      margin-bottom: 8px;
+    }
     button {
       width: 100%;
     }
@@ -80,6 +86,9 @@ const CTAButtons = styled.div`
 
 const CTABlurb = styled.div`
   width: 357px;
+  @media (max-width: ${({ theme }) => theme.breakPoints.tablet}) {
+    width: 100%;
+  }
 `;
 
 const MissionStatement = styled.div`
@@ -102,10 +111,20 @@ const MissionText = styled(Text)`
   }
 `;
 
+const TitleText = styled(Display)`
+  @media (max-width: ${({ theme }) => theme.breakPoints.mobile}) {
+    font-size: 56px;
+  }
+`;
+
 const HomePage: React.FC<HomePageProps> = ({ theme, onLoaded }) => {
   const history = useHistory();
   return (
     <Root>
+      <Banner to="/ukraine">
+        We're holding a donation drive to provide support and supplies to the
+        Ukrainian communities in crisis. click to learn more!
+      </Banner>
       <PageHeader
         img={headerBgImg}
         filter="grayscale(75%) brightness(1.2)"
@@ -123,7 +142,7 @@ const HomePage: React.FC<HomePageProps> = ({ theme, onLoaded }) => {
                 </Text>
               </SlideUp>
               <SlideUp delay="0.8s">
-                <Display
+                <TitleText
                   variant="large"
                   weight="bold"
                   color={theme?.colors.lights.offWhite}>
@@ -131,7 +150,7 @@ const HomePage: React.FC<HomePageProps> = ({ theme, onLoaded }) => {
                   <br />
                   In
                   <CTAColor> Christ</CTAColor>
-                </Display>
+                </TitleText>
               </SlideUp>
               <CTAButtons>
                 <SlideUp delay="1s">
@@ -175,7 +194,7 @@ const HomePage: React.FC<HomePageProps> = ({ theme, onLoaded }) => {
           into a fully-devoted relationship with the one who set us free.
         </MissionText>
       </MissionStatement>
-      <PageSection bgColor={theme?.colors.lights.offWhite}>
+      {/* <PageSection bgColor={theme?.colors.lights.offWhite}>
         <Text
           weight="bold"
           variant="x-large"
@@ -186,7 +205,7 @@ const HomePage: React.FC<HomePageProps> = ({ theme, onLoaded }) => {
         <NormalButton href="https://www.google.com/maps/place/Grace+Trinity+Church/@38.6722806,-121.3308039,19z/data=!4m12!1m6!3m5!1s0x0:0x9f3daf42aa68e42f!2sGrace+Trinity+Church!8m2!3d38.6722971!4d-121.3305286!3m4!1s0x0:0x9f3daf42aa68e42f!8m2!3d38.6722971!4d-121.3305286?hl=en-US">
           View on Maps
         </NormalButton>
-      </PageSection>
+      </PageSection> */}
     </Root>
   );
 };

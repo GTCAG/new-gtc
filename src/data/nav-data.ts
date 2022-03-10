@@ -1,5 +1,9 @@
 const navData = [
   {
+    title: "Help Ukraine",
+    route: "/ukraine",
+  },
+  {
     sectionTitle: "Who We Are",
     links: [
       { title: "What We Believe", route: "/belief" },
@@ -24,6 +28,7 @@ const navData = [
   },
   {
     title: "Give Back",
+    isHref: true,
     route:
       "https://www.paypal.com/donate/?cmd=_s-xclick&hosted_button_id=YJCTP942P8MRY",
     normal: true,

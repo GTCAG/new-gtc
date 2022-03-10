@@ -293,6 +293,14 @@ const MobileNav = withTheme(
   }
 );
 
+const NormalRouteLink = styled(RouteLink)`
+  padding: 20px;
+  text-decoration: none;
+  &:hover {
+    background-color: ${({ theme }) => theme.colors.accent.dark}20;
+  }
+`;
+
 const NavBar: React.FC<NavBarProps> = (props: NavBarProps) => {
   const [navOpen, setNavOpen] = useState(false);
 
@@ -320,14 +328,26 @@ const NavBar: React.FC<NavBarProps> = (props: NavBarProps) => {
               </DropdownLink>
             );
 
+          if (data.isHref)
+            return (
+              <NormalLink href={data.route} key={index}>
+                <Text
+                  variant="x-small"
+                  color={props.theme.colors.lights.offWhite}>
+                  {data.title}
+                </Text>
+              </NormalLink>
+            );
+
           return (
-            <NormalLink href={data.route} key={index}>
+            //@ts-ignore
+            <NormalRouteLink to={data.route} key={index}>
               <Text
                 variant="x-small"
                 color={props.theme.colors.lights.offWhite}>
                 {data.title}
               </Text>
-            </NormalLink>
+            </NormalRouteLink>
           );
         })}
       </Links>

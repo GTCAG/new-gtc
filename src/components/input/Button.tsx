@@ -7,11 +7,14 @@ interface ButtonProps {
   children?: any;
   width?: string;
   onClick?: () => void;
+  backgroundColor?: string;
+  borderColor?: string;
+  color?: string;
 }
 
 const Root = styled.button<ButtonProps>`
   padding: 0 45px;
-
+  width: ${({ width }) => width || "fit-content"};
   display: flex;
   justify-content: center;
   align-items: center;
@@ -21,7 +24,9 @@ const Root = styled.button<ButtonProps>`
   box-sizing: border-box;
 
   background-color: rgba(0, 0, 0, 0);
-  border: 1px solid ${({ theme }) => theme.colors.cta.default};
+  border: 1px solid
+    ${({ theme, borderColor }) =>
+      borderColor ? borderColor : theme.colors.cta.default};
 
   letter-spacing: 0.75px;
   ${({ theme }) => theme.fonts.text};
@@ -32,7 +37,9 @@ const Root = styled.button<ButtonProps>`
   overflow: hidden;
   position: relative;
   color: ${(props) =>
-    props.variant === "secondary"
+    props.color
+      ? props.color
+      : props.variant === "secondary"
       ? props.theme.colors.lights.offWhite
       : props.theme.colors.primary.default};
 
@@ -54,8 +61,10 @@ const ButtonFill = styled.div<ButtonProps>`
   right: 0;
   top: 0;
   bottom: 0;
-  background-color: ${({ theme, variant }) =>
-    variant === "secondary"
+  background-color: ${({ theme, variant, backgroundColor }) =>
+    backgroundColor
+      ? backgroundColor
+      : variant === "secondary"
       ? theme.colors.accent.default
       : theme.colors.cta.default};
   z-index: -1;

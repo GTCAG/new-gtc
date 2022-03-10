@@ -38,7 +38,7 @@ const Logo = styled.img`
 
 const ContactDetails = styled.div`
   width: 143px;
-  height: 222px;
+  height: 270px;
   display: flex;
   justify-content: space-between;
   flex-direction: column;
@@ -99,7 +99,9 @@ const Footer: React.FC<FooterProps> = ({ theme }) => {
               5821 Auburn Blvd, Sacramento, CA 95841
             </Text>
             <Text variant={textVariant} color={color}>
-              (Phone Number to be determined) Contact Us
+              916.218.2671
+              <br />
+              Pastor Alex Kalinyuk Sr. Contact Us
             </Text>
             <Text variant={textVariant} color={color}>
               Service Times: 10:00am-12:00pm

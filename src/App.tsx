@@ -11,6 +11,8 @@ import GTCLogo from "./components/svgs/GTCLogo";
 import MediaPage from "./components/pages/MediaPage";
 import UnderConstructionPage from "./components/pages/UnderConstructionPage";
 import LeadershipPage from "./components/pages/LeadershipPage";
+import UkraineAidPage from "./components/pages/UkraineAidPage";
+import ContactPage from "./components/pages/ContactPage";
 
 interface ContentProps {
   hidden: boolean;
@@ -102,7 +104,11 @@ const App: React.FC<AppProps> = ({ theme }) => {
           <UnderConstructionPage />
         </Route>
         <Route exact path="/contact">
-          <UnderConstructionPage />
+          <ContactPage />
+        </Route>
+
+        <Route exact path="/ukraine">
+          <UkraineAidPage />
         </Route>
         <Footer />
       </ContentRoot>
