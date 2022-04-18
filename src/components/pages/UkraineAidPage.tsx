@@ -1,13 +1,13 @@
-import React from "react";
-import styled, { useTheme } from "styled-components";
-import PageHeader from "../atoms/PageHeader";
-import bgImg from "../../images/ukraine-flag.jpg";
-import Text from "../texts/Text";
-import SlideUp from "../animation-containers/SlideUp";
-import PageSection from "../atoms/PageSection";
-import Button from "../input/Button";
-import contentPhoto1 from "../../images/ukraine-fence.jpg";
-import Display from "../texts/Display";
+import React from 'react';
+import styled, { useTheme } from 'styled-components';
+import PageHeader from '../atoms/PageHeader';
+import bgImg from '../../images/ukraine-flag.jpg';
+import Text from '../texts/Text';
+import SlideUp from '../animation-containers/SlideUp';
+import PageSection from '../atoms/PageSection';
+import Button from '../input/Button';
+import contentPhoto1 from '../../images/ukraine-fence.jpg';
+import Display from '../texts/Display';
 
 const Root = styled.div`
   width: 100%;
@@ -26,7 +26,7 @@ const Divider = styled.div<DividerProps>`
   width: 100%;
   height: 1px;
   margin: 32px 0px;
-  background-color: ${({ color }) => color || "#eee"};
+  background-color: ${({ color }) => color || '#eee'};
 `;
 
 const SectionImage = styled.img`
@@ -80,7 +80,8 @@ const UkraineAidPage = () => {
               backgroundColor="#6a8bf7"
               borderColor="#6a8bf7"
               color="#222"
-              width="100%">
+              width="100%"
+            >
               DONATE ONLINE
             </Button>
           </SlideUp>
@@ -95,7 +96,8 @@ const UkraineAidPage = () => {
               variant="small"
               weight="600"
               style={{ marginBottom: 16, marginTop: 40 }}
-              color={theme.colors.primary.default}>
+              color={theme.colors.primary.default}
+            >
               We're holding a Donation Drive!
             </Display>
             <Text variant="medium">
@@ -107,36 +109,39 @@ const UkraineAidPage = () => {
               5821 Auburn Blvd, Sacramento, CA 95841
               <br />
               <br />
-              March 14, 2022 - March 20, 2022.
+              April 20 and 21, 2022.
               <br />
-              Daily Hours: 9am-12pm or 2pm-8pm
+              Daily Hours: 2pm-8pm
             </Text>
 
             <div>
               <Text
                 variant="medium"
-                style={{ fontStyle: "italic", marginTop: 10 }}>
+                style={{ fontStyle: 'italic', marginTop: 10 }}
+              >
                 "Contribute to the needs of God's people, and welcome strangers
                 into your home."
               </Text>
               <Text
                 variant="large"
                 weight="bold"
-                style={{ marginTop: 8, width: "100%", textAlign: "center" }}>
+                style={{ marginTop: 8, width: '100%', textAlign: 'center' }}
+              >
                 Romans: 12:13
               </Text>
             </div>
           </TextContainer>
         </SectionContent>
-        <div style={{ textAlign: "center", marginTop: 80 }}>
+        <div style={{ textAlign: 'center', marginTop: 80 }}>
           <Display
             variant="small"
             weight="600"
             style={{ marginBottom: 16, marginTop: 40 }}
-            color={theme.colors.primary.default}>
+            color={theme.colors.primary.default}
+          >
             Donation Items Requested:
           </Display>
-          <Text variant="large" style={{ fontWeight: "bold", marginTop: 40 }}>
+          <Text variant="large" style={{ fontWeight: 'bold', marginTop: 40 }}>
             Medical-related supplies
           </Text>
           <Text>
@@ -145,14 +150,14 @@ const UkraineAidPage = () => {
             children, sterilized gloves, cast material, suture kits, band aids,
             tourniquets, quick clot gauze, betadine, crutches, wheelchairs
           </Text>
-          <Text variant="large" style={{ fontWeight: "bold", marginTop: 40 }}>
+          <Text variant="large" style={{ fontWeight: 'bold', marginTop: 40 }}>
             Food/Nutition-related supplies
           </Text>
           <Text>
             baby formula, pedialyte/electrolyte replacements, vitamins (adult
             and children)
           </Text>
-          <Text variant="large" style={{ fontWeight: "bold", marginTop: 40 }}>
+          <Text variant="large" style={{ fontWeight: 'bold', marginTop: 40 }}>
             Other
           </Text>
           <Text>
@@ -168,14 +173,15 @@ const UkraineAidPage = () => {
             variant="small"
             weight="600"
             style={{ marginBottom: 16, marginTop: 80 }}
-            color={theme.colors.primary.default}>
+            color={theme.colors.primary.default}
+          >
             Questions?
           </Display>
           <Text>
             Please call Tatyana at 916-475-9032 or email
             gracetrinityag@yahoo.com
           </Text>
-          <Text variant="medium" style={{ fontStyle: "italic", marginTop: 10 }}>
+          <Text variant="medium" style={{ fontStyle: 'italic', marginTop: 10 }}>
             * A donation receipt will be provided by Grace Trinity Church AG for
             eligible donations.
           </Text>
