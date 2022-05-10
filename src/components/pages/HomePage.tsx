@@ -1,17 +1,17 @@
-import React from "react";
-import styled, { DefaultTheme, withTheme } from "styled-components";
-import PageHeader from "../atoms/PageHeader";
-import headerBgImg from "../../images/service.jpg";
-import Text from "../texts/Text";
-import Display from "../texts/Display";
-import Button from "../input/Button";
-import Underlined from "../texts/Underlined";
-import { useHistory } from "react-router-dom";
-import SlideUp from "../animation-containers/SlideUp";
-import PageSection from "../atoms/PageSection";
-import MapView from "../atoms/MapView";
-import NormalButton from "../input/NormalButton";
-import Banner from "../banner/Banner";
+import React from 'react';
+import styled, { DefaultTheme, withTheme } from 'styled-components';
+import PageHeader from '../atoms/PageHeader';
+import headerBgImg from '../../images/service.jpg';
+import Text from '../texts/Text';
+import Display from '../texts/Display';
+import Button from '../input/Button';
+import Underlined from '../texts/Underlined';
+import { useHistory } from 'react-router-dom';
+import SlideUp from '../animation-containers/SlideUp';
+import PageSection from '../atoms/PageSection';
+import MapView from '../atoms/MapView';
+import NormalButton from '../input/NormalButton';
+import Banner from '../banner/Banner';
 
 interface HomePageProps {
   theme?: DefaultTheme;
@@ -122,14 +122,15 @@ const HomePage: React.FC<HomePageProps> = ({ theme, onLoaded }) => {
   return (
     <Root>
       <Banner to="/ukraine">
-        We're holding a donation drive to provide support and supplies to the
-        Ukrainian communities in crisis. click to learn more!
+        Want to donate and help provide support and supplies to the Ukrainian
+        communities in crisis? Click to learn more!
       </Banner>
       <PageHeader
         img={headerBgImg}
         filter="grayscale(75%) brightness(1.2)"
         bgLoad={onLoaded}
-        alignItems={"flex-start"}>
+        alignItems={'flex-start'}
+      >
         <CenterContainer>
           <HeaderCTAContainer>
             <HeaderCTA>
@@ -137,7 +138,8 @@ const HomePage: React.FC<HomePageProps> = ({ theme, onLoaded }) => {
                 <Text
                   variant="medium"
                   weight="500"
-                  color={theme?.colors.lights.offWhite}>
+                  color={theme?.colors.lights.offWhite}
+                >
                   Together We Build
                 </Text>
               </SlideUp>
@@ -145,7 +147,8 @@ const HomePage: React.FC<HomePageProps> = ({ theme, onLoaded }) => {
                 <TitleText
                   variant="large"
                   weight="bold"
-                  color={theme?.colors.lights.offWhite}>
+                  color={theme?.colors.lights.offWhite}
+                >
                   Our Faith
                   <br />
                   In
@@ -161,7 +164,8 @@ const HomePage: React.FC<HomePageProps> = ({ theme, onLoaded }) => {
                 <SlideUp delay="1.1s">
                   <Button
                     variant="secondary"
-                    onClick={() => history.push("/media")}>
+                    onClick={() => history.push('/media')}
+                  >
                     View our Media
                   </Button>
                 </SlideUp>
@@ -171,11 +175,12 @@ const HomePage: React.FC<HomePageProps> = ({ theme, onLoaded }) => {
                   <Text
                     variant="medium"
                     weight="500"
-                    color={theme?.colors.lights.offWhite}>
-                    Join our livestream on{" "}
+                    color={theme?.colors.lights.offWhite}
+                  >
+                    Join our livestream on{' '}
                     <Underlined href="https://www.youtube.com/channel/UCNaKPci4jHkzFyo2hYwlVRQ">
                       YouTube
-                    </Underlined>{" "}
+                    </Underlined>{' '}
                     at 10:00am-12:00pm
                   </Text>
                 </CTABlurb>
@@ -188,7 +193,8 @@ const HomePage: React.FC<HomePageProps> = ({ theme, onLoaded }) => {
         <MissionText
           variant="large"
           weight="500"
-          color={theme?.colors.lights.offWhite}>
+          color={theme?.colors.lights.offWhite}
+        >
           The mission of Grace Trinity Church is to glorify God by introducing
           Jesus Christ as Lord to the city of Sacramento and more. Leading them
           into a fully-devoted relationship with the one who set us free.

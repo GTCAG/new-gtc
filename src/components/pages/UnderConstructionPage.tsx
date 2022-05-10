@@ -1,10 +1,10 @@
-import React from "react";
-import styled, { withTheme, DefaultTheme } from "styled-components";
-import bgImg from "../../images/church1.jpg";
+import React from 'react';
+import styled, { withTheme, DefaultTheme } from 'styled-components';
+import bgImg from '../../images/church1.jpg';
 
-import PageHeader from "../atoms/PageHeader";
-import Display from "../texts/Display";
-import Text from "../texts/Text";
+import PageHeader from '../atoms/PageHeader';
+import Display from '../texts/Display';
+import Text from '../texts/Text';
 
 interface UnderConstructionPageProps {
   theme: DefaultTheme;
@@ -21,12 +21,13 @@ const UnderConstructionPage: React.FC<UnderConstructionPageProps> = ({
     <Root>
       <PageHeader height="800px" img={bgImg}>
         <Display variant="large" color={theme.colors.lights.offWhite}>
-          Page Under Construction...
+          This page is not ready yet...
         </Display>
         <Text
           color={theme.colors.lights.offWhite}
           variant="x-large"
-          style={{ marginTop: 24 }}>
+          style={{ marginTop: 24 }}
+        >
           Check back later!
         </Text>
       </PageHeader>
