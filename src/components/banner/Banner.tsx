@@ -1,9 +1,15 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import styled from "styled-components";
-import Text from "../texts/Text";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import styled from 'styled-components';
+import Text from '../texts/Text';
 
-const Root = styled.div`
+interface BannerProps {
+  to?: string;
+  children?: any;
+  bgColor?: string;
+}
+
+const Root = styled.div<BannerProps>`
   width: 100%;
   min-height: 70px;
 
@@ -11,7 +17,8 @@ const Root = styled.div`
   justify-content: center;
   align-items: center;
   padding: 32px;
-  background-color: ${({ theme }) => theme.colors.cta.default};
+  background-color: ${({ theme, bgColor }) =>
+    bgColor || theme.colors.cta.default};
   box-sizing: border-box;
 `;
 
@@ -24,11 +31,11 @@ const BannerText = styled(Text)`
   text-align: center;
 `;
 
-const Banner: React.FC<any> = ({ to, children }) => {
+const Banner: React.FC<BannerProps> = ({ to, children, ...rest }) => {
   if (to) {
     return (
       <BannerLink to={to}>
-        <Root>
+        <Root {...rest}>
           <BannerText variant="medium">{children}</BannerText>
         </Root>
       </BannerLink>

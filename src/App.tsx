@@ -1,18 +1,19 @@
-import React, { useState, useEffect } from "react";
-import { Route, useLocation } from "react-router-dom";
-import NavBar from "./components/atoms/NavBar";
-import Footer from "./components/atoms/Footer";
-import HomePage from "./components/pages/HomePage";
-import TestPage from "./components/pages/TestPage";
-import styled, { DefaultTheme, withTheme } from "styled-components";
-import CafePage from "./components/pages/CafePage";
-import BeliefPage from "./components/pages/BeliefPage";
-import GTCLogo from "./components/svgs/GTCLogo";
-import MediaPage from "./components/pages/MediaPage";
-import UnderConstructionPage from "./components/pages/UnderConstructionPage";
-import LeadershipPage from "./components/pages/LeadershipPage";
-import UkraineAidPage from "./components/pages/UkraineAidPage";
-import ContactPage from "./components/pages/ContactPage";
+import React, { useState, useEffect } from 'react';
+import { Route, useLocation } from 'react-router-dom';
+import NavBar from './components/atoms/NavBar';
+import Footer from './components/atoms/Footer';
+import HomePage from './components/pages/HomePage';
+import TestPage from './components/pages/TestPage';
+import styled, { DefaultTheme, withTheme } from 'styled-components';
+import CafePage from './components/pages/CafePage';
+import BeliefPage from './components/pages/BeliefPage';
+import GTCLogo from './components/svgs/GTCLogo';
+import MediaPage from './components/pages/MediaPage';
+import UnderConstructionPage from './components/pages/UnderConstructionPage';
+import LeadershipPage from './components/pages/LeadershipPage';
+import UkraineAidPage from './components/pages/UkraineAidPage';
+import ContactPage from './components/pages/ContactPage';
+import VBSPage from './components/pages/VBSPage';
 
 interface ContentProps {
   hidden: boolean;
@@ -36,7 +37,7 @@ const ContentRoot = styled.div<ContentProps>`
   width: 100%;
   height: 100%;
 
-  display: ${(props) => (props.hidden ? "none" : "flex")};
+  display: ${(props) => (props.hidden ? 'none' : 'flex')};
   justify-content: center;
   align-items: center;
   flex-direction: column;
@@ -48,7 +49,7 @@ const App: React.FC<AppProps> = ({ theme }) => {
   const [loaderHidden, setLoaderHidden] = useState(false);
 
   useEffect(() => {
-    if (location.pathname !== "/" && !loaded) {
+    if (location.pathname !== '/' && !loaded) {
       setLoaded(true);
     }
   }, [location, loaded]);
@@ -66,9 +67,8 @@ const App: React.FC<AppProps> = ({ theme }) => {
     <AppRoot>
       <Route exact path="/">
         <div
-          className={`loader ${loaded && "loaded"} ${
-            loaderHidden && "hidden"
-          }`}>
+          className={`loader ${loaded && 'loaded'} ${loaderHidden && 'hidden'}`}
+        >
           <GTCLogo color={theme.colors.cta.default} />
         </div>
       </Route>
@@ -107,6 +107,9 @@ const App: React.FC<AppProps> = ({ theme }) => {
           <ContactPage />
         </Route>
 
+        <Route exact path="/vbs">
+          <VBSPage />
+        </Route>
         <Route exact path="/ukraine">
           <UkraineAidPage />
         </Route>

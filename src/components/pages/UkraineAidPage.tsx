@@ -8,44 +8,12 @@ import PageSection from '../atoms/PageSection';
 import Button from '../input/Button';
 import contentPhoto1 from '../../images/ukraine-fence.jpg';
 import Display from '../texts/Display';
-
-const Root = styled.div`
-  width: 100%;
-`;
-
-interface DividerProps {
-  color?: string;
-}
-
-const TitleText = styled(Text)`
-  color: #eee;
-  font-size: 40px;
-`;
-
-const Divider = styled.div<DividerProps>`
-  width: 100%;
-  height: 1px;
-  margin: 32px 0px;
-  background-color: ${({ color }) => color || '#eee'};
-`;
-
-const SectionImage = styled.img`
-  height: 100%;
-  width: 100%;
-  max-width: 470px;
-  max-height: 470px;
-  object-fit: contain;
-`;
-
-const SectionContent = styled.div`
-  margin-top: 32px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  @media (max-width: ${({ theme }) => theme.breakPoints.desktop}) {
-    flex-direction: column;
-  }
-`;
+import PageHeaderContent from '../atoms/PageHeaderContent';
+import TitleText from '../atoms/PageHeaderTitle';
+import Divider from '../atoms/Divider';
+import Root from '../atoms/Root';
+import SectionContent from '../atoms/SectionContent';
+import SectionImage from '../atoms/SectionImage';
 
 const TextContainer = styled.div`
   margin-left: 40px;
@@ -55,11 +23,6 @@ const TextContainer = styled.div`
   @media (max-width: ${({ theme }) => theme.breakPoints.desktop}) {
     margin-left: 0;
   }
-`;
-
-const PageHeaderContent = styled.div`
-  padding: 20px;
-  text-align: center;
 `;
 
 const UkraineAidPage = () => {
