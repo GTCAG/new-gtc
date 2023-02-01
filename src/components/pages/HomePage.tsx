@@ -121,9 +121,6 @@ const HomePage: React.FC<HomePageProps> = ({ theme, onLoaded }) => {
   const history = useHistory();
   return (
     <Root>
-      <Banner bgColor="#eaeaea" to="/vbs">
-        You're invited to VBS 2022 - Sign ups available
-      </Banner>
       <Banner to="/ukraine">
         Want to donate and help provide support and supplies to the Ukrainian
         communities in crisis? Click to learn more!
